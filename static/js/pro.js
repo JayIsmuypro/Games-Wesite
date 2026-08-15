@@ -3,7 +3,7 @@
 //
 // ========================================
 // HOW TO ADD GAMES:
-// 1. Use the Manage Games button in the Games Thing.
+// 1. Use the Manage Games button in the Game Launcher.
 // 2. Choose a file from the game_storage folder.
 // 3. Customize title, description, icon, image, status, and thumbnails.
 //
@@ -15,7 +15,6 @@
   'use strict';
 
   // Configuration
-  const VALID_CODE = 'terriblewebsite';
   let GAME_SLOTS = [
     {
       id: 1,
@@ -119,6 +118,446 @@
     {
       id: 10,
       title: 'Game Slot 10',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 11,
+      title: 'Game Slot 11',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 12,
+      title: 'Game Slot 12',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 13,
+      title: 'Game Slot 13',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 14,
+      title: 'Game Slot 14',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 15,
+      title: 'Game Slot 15',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 16,
+      title: 'Game Slot 16',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 17,
+      title: 'Game Slot 17',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 18,
+      title: 'Game Slot 18',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 19,
+      title: 'Game Slot 19',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 20,
+      title: 'Game Slot 20',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 21,
+      title: 'Game Slot 21',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 22,
+      title: 'Game Slot 22',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 23,
+      title: 'Game Slot 23',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 24,
+      title: 'Game Slot 24',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 25,
+      title: 'Game Slot 25',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 26,
+      title: 'Game Slot 26',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 27,
+      title: 'Game Slot 27',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 28,
+      title: 'Game Slot 28',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 29,
+      title: 'Game Slot 29',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 30,
+      title: 'Game Slot 30',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 31,
+      title: 'Game Slot 31',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 32,
+      title: 'Game Slot 32',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 33,
+      title: 'Game Slot 33',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 34,
+      title: 'Game Slot 34',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 35,
+      title: 'Game Slot 35',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 36,
+      title: 'Game Slot 36',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 37,
+      title: 'Game Slot 37',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 38,
+      title: 'Game Slot 38',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 39,
+      title: 'Game Slot 39',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 40,
+      title: 'Game Slot 40',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 41,
+      title: 'Game Slot 41',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 42,
+      title: 'Game Slot 42',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 43,
+      title: 'Game Slot 43',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 44,
+      title: 'Game Slot 44',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 45,
+      title: 'Game Slot 45',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 46,
+      title: 'Game Slot 46',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 47,
+      title: 'Game Slot 47',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 48,
+      title: 'Game Slot 48',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 49,
+      title: 'Game Slot 49',
+      description: 'Choose a game file from game_storage to configure this slot.',
+      icon: '',
+      image: '',
+      thumbnailLink: '',
+      thumbnailLabel: '',
+      file: '',
+      status: 'available'
+    },
+    {
+      id: 50,
+      title: 'Game Slot 50',
       description: 'Choose a game file from game_storage to configure this slot.',
       icon: '',
       image: '',
@@ -600,7 +1039,7 @@
       content: `
         <div class="panel-section">
           <h4 class="panel-section-title">Manage Your Slots</h4>
-          <p>Select a slot to choose a game file from the game_storage folder and edit metadata for the Games Thing.</p>
+          <p>Select a slot to choose a game file from the game_storage folder and edit metadata for the Game Launcher.</p>
           <div class="panel-field">
             <label for="manageSlotSelect">Choose slot</label>
             <select id="manageSlotSelect" class="panel-input"></select>
@@ -1280,7 +1719,7 @@
       backToGames.addEventListener('click', closeGame);
     }
 
-    // Exit Games Thing button
+    // Exit Game Launcher button
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         window.location.replace('/');
@@ -1333,25 +1772,25 @@
       manageGamesBtn.addEventListener('click', () => openPanel('manage'));
     }
 
-    // Open the Games Thing inside an about:blank tab
+    // Open the Game Launcher inside an about:blank tab
     if (openBlankBtn) {
       openBlankBtn.addEventListener('click', () => {
         const newWin = window.open('about:blank', '_blank');
         if (!newWin) return;
 
-        const proUrl = `${window.location.origin}/pro`;
+        const proUrl = `${window.location.origin}/learn`;
         newWin.document.write(`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Games Thing</title>
+    <title>Game Launcher</title>
     <style>
       html, body { margin: 0; height: 100%; overflow: hidden; }
       iframe { border: 0; width: 100%; height: 100vh; }
     </style>
   </head>
   <body>
-    <iframe src="${proUrl}" title="Games Thing"></iframe>
+    <iframe src="${proUrl}" title="Game Launcher"></iframe>
   </body>
 </html>`);
         newWin.document.close();

@@ -8,6 +8,7 @@ import json
 import gzip
 import importlib.util
 from datetime import datetime
+import hmac
 from functools import wraps
 from dotenv import load_dotenv
 
@@ -19,13 +20,25 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-load_dotenv()
-ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'terriblewebsite')
+# Absolute .env paths so config loads regardless of the working directory
+# (PythonAnywhere starts the app from a different cwd).
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(os.path.join(BASE_DIR, 'Ai.chatbot', '.env'), override=True)
+
+# Load and normalize admin password from environment (fallback to 'water' for dev)
+# Use strip() to remove accidental whitespace/newlines which can cause intermittent failures.
+ADMIN_PASSWORD = (os.environ.get('ADMIN_PASSWORD', 'water') or 'water').strip()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'dev-only-change-in-production')
+# Normalize SECRET_KEY if provided; fall back to a development default otherwise.
+raw_secret = os.environ.get('SECRET_KEY')
+app.secret_key = raw_secret.strip() if raw_secret and raw_secret.strip() else 'dev-only-change-in-production'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # Cache static assets for one year
 app.config['JSON_SORT_KEYS'] = False
+
+if app.secret_key == 'dev-only-change-in-production':
+    print('Warning: SECRET_KEY is using the development default. Set SECRET_KEY in the environment to avoid session instability.')
 
 # Initialize SocketIO with long-polling only (for PythonAnywhere free tier)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading', transports=['polling'])
@@ -35,7 +48,6 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading', trans
 application = WSGIApp(socketio.server, app)
 
 # Database configuration: use absolute path to avoid current-directory issues on PythonAnywhere.
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'chat.db')
 
 def get_db():
@@ -145,6 +157,17 @@ def api_game_config():
     return jsonify({'success': True, 'data': data})
 
 
+API_KEY_HELP = (
+    'API_KEY is not set. Add it to .env in the project root '
+    '(or Ai.chatbot/.env) as API_KEY=your-key, then restart the app.'
+)
+
+
+def get_gemini_api_key():
+    """Read the Gemini key from the environment loaded at startup."""
+    return os.getenv('API_KEY')
+
+
 def load_ai_chatbot_module():
     ai_chatbot_path = os.path.join(BASE_DIR, 'Ai.chatbot', 'chatbot.py')
     if not os.path.exists(ai_chatbot_path):
@@ -167,9 +190,9 @@ def ai_chat():
         if not message:
             error = 'Please enter a message to send to the AI chatbot.'
         else:
-            api_key = os.getenv('API_KEY')
+            api_key = get_gemini_api_key()
             if not api_key:
-                error = 'API_KEY not found. Please set it in Ai.chatbot/.env or as an environment variable.'
+                error = API_KEY_HELP
             else:
                 try:
                     ai_chatbot = load_ai_chatbot_module()
@@ -193,16 +216,14 @@ def get_website_chat_prompt(user_message=None):
 
 @app.route('/api/ai-chat', methods=['POST'])
 def api_ai_chat():
-    load_dotenv(os.path.join(BASE_DIR, 'Ai.chatbot', '.env'))
-
     data = request.get_json(silent=True) or {}
     message = (data.get('message') or '').strip()
     if not message:
         return jsonify({'success': False, 'error': 'Message is required.'}), 400
 
-    api_key = os.getenv('API_KEY')
+    api_key = get_gemini_api_key()
     if not api_key:
-        return jsonify({'success': False, 'error': 'API_KEY not configured. Please set it in Ai.chatbot/.env or as an environment variable.'}), 500
+        return jsonify({'success': False, 'error': API_KEY_HELP}), 500
 
     try:
         ai_chatbot = load_ai_chatbot_module()
@@ -251,17 +272,18 @@ def practice_challenges():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get('authenticated'):
-        return redirect('/pro')
+        return redirect('/learn')
 
     error = None
     if request.method == "POST":
         password = request.form.get("password", "").strip()
-        if password == ADMIN_PASSWORD:
+        # Use a constant-time comparison to avoid timing-related issues
+        if password and hmac.compare_digest(password, ADMIN_PASSWORD):
             session['authenticated'] = True
             username = request.form.get('username', '').strip() or None
             if username:
                 session['username'] = username
-            return redirect('/pro')
+            return redirect('/learn')
         error = "Invalid password. Please try again."
 
     return render_template("login.html", error=error)
@@ -273,7 +295,7 @@ def logout():
     return redirect('/login')
 
 
-@app.route('/pro')
+@app.route('/learn')
 @requires_auth
 def pro():
     # Get username from session or generate a random one

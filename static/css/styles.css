@@ -1028,20 +1028,22 @@ label {
 .animate-slide-left,
 .animate-scale-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .animate-slide-left {
-  transform: translateX(-30px);
+  transform: translate3d(-30px, 0, 0);
 }
 
 .animate-slide-right {
-  transform: translateX(30px);
+  transform: translate3d(30px, 0, 0);
 }
 
 .animate-scale-in {
-  transform: scale(0.96);
+  transform: translate3d(0, 0, 0) scale(0.98);
 }
 
 .animate-fade-up.in-view,
@@ -1050,7 +1052,7 @@ label {
 .animate-slide-left.in-view,
 .animate-scale-in.in-view {
   opacity: 1;
-  transform: translate(0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 .delay-1 {
@@ -1063,6 +1065,17 @@ label {
 
 .delay-3 {
   transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-slide-up,
+  .animate-slide-right,
+  .animate-slide-left,
+  .animate-scale-in {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 html {

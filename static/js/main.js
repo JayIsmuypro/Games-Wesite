@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('loginBtn');
   const getStartedBtn = document.getElementById('getStartedBtn');
   const heroStartBtn = document.getElementById('heroStartBtn');
@@ -10,7 +10,7 @@
   const termsLinks = document.querySelectorAll('#termsLink, #termsLinkFooter');
   const popup = document.getElementById('popup');
   const closePopup = document.getElementById('close-popup');
-  // Games Thing moved to separate page (pro.html); no in-page elements.
+  // Game Launcher moved to separate page (pro.html); no in-page elements.
   const mobileToggle = document.getElementById('mobileToggle');
   const mainNav = document.querySelector('.main-nav');
   const animatedElements = document.querySelectorAll('.animate-fade-up, .animate-slide-up, .animate-slide-right, .animate-slide-left, .animate-scale-in');
@@ -24,7 +24,7 @@
     if (username) username.focus();
   }
 
-  // No-op: Games Thing is on a separate page.
+  // No-op: Game Launcher is on a separate page.
 
   function closeModal() {
     if (!loginModal) return;
@@ -72,7 +72,7 @@
     });
   }
 
-  // Nothing else required for Games Thing on index page.
+  // Nothing else required for Game Launcher on index page.
 
   function animateCounters(entries, observer) {
     entries.forEach((entry) => {
